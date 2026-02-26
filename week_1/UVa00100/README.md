@@ -36,6 +36,7 @@ Brief description of the problen -> [here](https://onlinejudge.org/index.php?opt
 
 ## New code struct
 ```C++
+
 <details>
 
 <summary> click to open </summary>
@@ -77,6 +78,7 @@ int main()
 		cout << " " << max << endl;
 	}
 }
+
 </detail>
 
 ```
