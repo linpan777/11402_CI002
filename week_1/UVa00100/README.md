@@ -37,7 +37,9 @@ Brief description of the problen -> [here](https://onlinejudge.org/index.php?opt
 ## New code struct
 ```C++
 <details>
+
 <summary> click to open </summary>
+
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -76,6 +78,7 @@ int main()
 	}
 }
 </detail>
+
 ```
 [source code](v2(AC).cpp)
 
