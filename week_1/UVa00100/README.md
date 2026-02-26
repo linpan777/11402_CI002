@@ -19,14 +19,14 @@ Brief description of the problen -> [here](https://onlinejudge.org/index.php?opt
 | `max` | every time to store max cycle lenth | 
 ### Algorithm logic
 ```text
->1. input a, b
->2. for loop(a -> b)
->3.      while loop(c != 1)
->4.          ++times
->5.          (the core algorithm of 3n+1)
->6.      if(max < times)
->7.          max = times
->8. output
+1. input a, b
+2. for loop(a -> b)
+3.      while loop(c != 1)
+4.          ++times
+5.          (the core algorithm of 3n+1)
+6.      if(max < times)
+7.          max = times
+8. output
 ```
 
 ## Challenges
@@ -36,6 +36,8 @@ Brief description of the problen -> [here](https://onlinejudge.org/index.php?opt
 
 ## New code struct
 ```C++
+<details>
+<summary> click to open </summary>
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -73,6 +75,7 @@ int main()
 		cout << " " << max << endl;
 	}
 }
+</detail>
 ```
 [source code](v2(AC).cpp)
 
