@@ -18,6 +18,7 @@ Brief description of the problen -> [here](https://onlinejudge.org/index.php?opt
 | `times` | core loop to caculate cycle length |
 | `max` | every time to store max cycle lenth | 
 ### Algorithm logic
+```text
 >1. input a, b
 >2. for loop(a -> b)
 >3.      while loop(c != 1)
@@ -26,6 +27,7 @@ Brief description of the problen -> [here](https://onlinejudge.org/index.php?opt
 >6.      if(max < times)
 >7.          max = times
 >8. output
+```
 
 ## Challenges
 1. `a` must smaller than `b`.
