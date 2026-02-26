@@ -36,7 +36,7 @@ Brief description of the problen -> [here](https://onlinejudge.org/index.php?opt
 
 ## New code struct
 <details>
-<summary> `click to open` </summary>
+<summary> <head>click to open<head> </summary>
 
 ```C++
 #include <iostream>
