@@ -78,10 +78,10 @@ int main()
 - Time complexity：*O(N \* C)
 - Space complexity： *O(1)
 
-<detail>
+<details>
 <summary>## Note</summary>
 1. 真的不行就看中文版
 2. 不要緊張！！！ ### 不要緊張！！！ ## 不要緊張！！！ # 不要緊張！！！
 緊張就會亂思路！
 3.寫完發現有問題不要東拼西湊，重看邏輯哪裡有問題！
-</detail>
+</details>
