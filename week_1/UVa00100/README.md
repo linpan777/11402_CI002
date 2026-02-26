@@ -1,7 +1,7 @@
 # UVa 100 - The 3n+1 Problem
 
 ## Problem Description
-Brief description of the problen here [click to the problem](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=3&page=show_problem&problem=36)
+Brief description of the problen here `[click to the problem]`(https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=3&page=show_problem&problem=36)
 
 ## Learning Objectives
 1. Learn about 3n+1 conjecture
@@ -29,6 +29,6 @@ Brief description of the problen here [click to the problem](https://onlinejudge
 
 ## Challenges
 1. forget to reset the variable(eg. times/max)
-2. due to my for loop, <kbd>a</kbd> should smaller than <kbd>b</kbd>, but I didn't check
-3. core algorithm is wrong, The condition check for <kbd>c</kbd> should be placed after <kbd>time++</kbd>, instead of being the while loop condition.
-4. Didn't understand the question, 
+2. due to my for loop, `a` should smaller than `b`, but I didn't check
+3. core algorithm is wrong, The condition check for `c` should be placed after `time++`, instead of being the while loop condition.
+4. Didn't understand the question, consider the case where the input is `0`
