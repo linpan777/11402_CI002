@@ -79,11 +79,10 @@ int main()
 - Space complexity： *O(1)
 
 <details>
-<summary><b>📝 Note (解題心法)</b></summary>
+<summary><head1> Note </head1></summary>
 
 1. 真的不行就看中文版。
 2. **不要緊張！！！不要緊張！！！不要緊張！！！**
-# 不要緊張！！！
 > 💡 緊張就會亂思路！
 3. 寫完發現有問題不要東拼西湊，重看邏輯哪裡有問題！
 
