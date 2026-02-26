@@ -35,12 +35,10 @@ Brief description of the problen -> [here](https://onlinejudge.org/index.php?opt
 3. 0 is not in the cindition.
 
 ## New code struct
-```C++
-
 <details>
-
 <summary> click to open </summary>
 
+```C++
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -78,10 +76,10 @@ int main()
 		cout << " " << max << endl;
 	}
 }
-
-</detail>
-
 ```
+
+</details>
+
 [source code](v2(AC).cpp)
 
 ## Complexity Analysis
