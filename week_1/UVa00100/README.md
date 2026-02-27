@@ -82,6 +82,11 @@ int main()
 
 [source code](v2(AC).cpp)
 
+## Optimization Points:
+1. prints ``a`` and ``b`` before checking and swapping them. This guarantees the original input order is preserved for the output, allowing it to safely use ``swap(a, b)``.
+2. It utilizes an infinite loop ``while (true)`` with an early exit ``if (c == 1) break;``. This ensures every number <sub>(including the starting number and the final 1)</sub> naturally increments times. The result is exactly the cycle length, meaning you can simply output max without any offset adjustments.
+3. core cycle-counting logic is now completely accurate, these messy hacks <sub>c = 0</sub> were safely removed
+
 ## Complexity Analysis
 - Time complexity：*O(N \* C)
 - Space complexity： *O(1)
