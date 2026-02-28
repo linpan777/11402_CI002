@@ -149,13 +149,6 @@ for (int i = <ruby>~~addend~~<rt>adder</rt><ruby>.size() - 1; i >= 0; i--)
 - Time complexity： *O(N \* C)
 - Space complexity： *O(1)
 
-> [!Note]
-> 1. 真的不行就看中文版。
-> 2. **不要緊張！！！不要緊張！！！不要緊張！！！**
-> 💡 緊張就會亂思路！
-> 3. 寫完發現有問題不要東拼西湊，重看邏輯哪裡有問題！
-> 4. 多考慮一些，瘋狂程式的要求很高！換行都會要求！
-
 ## Version 3
 <details>
 <summary>Click to see abot v3</summary>
@@ -206,8 +199,8 @@ main:
 </details>
 
 ## Optimization point:
-### 1.Space Complexity Optimization ($O(D) \to O(1)$):<br>
-- Eliminated vector arrays. Used variables (like bool carry) to track whether is carry or not, achieving zero extra space overhead.
+### 1.Space Complexity Optimization:<br>
+- Deleted vector. Used variables (like bool carry) to track whether is carry or not, achieving zero extra space overhead.
 
 ### 2. Improved Time Efficiency (Single-pass computation):<br>
 - Shifted from a two-step "store then add" approach to an "<ruby>on-the-fly<rt>及時</rt></ruby> calculation". This avoids the cost of dynamic array
@@ -221,3 +214,8 @@ main:
 - Space complexity： *O(1)
 
 </details>
+
+> [!Note]
+> 1. 真的不行就看中文版。
+> 2. 超好笑，這題初始寫法根本大砲打蚊子，用的是大數加法的作法。
+> 3. 不知道寫這樣是不是對的...:( 一直在考慮要不要加個中文版
