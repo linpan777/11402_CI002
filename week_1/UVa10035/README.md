@@ -128,10 +128,10 @@ void add(int& times)
 
 ## <ruby>Optimization<rt>*優化*</rt></ruby> Points:
 1. ### Removed Dead Code: 
-> Deleted the confusing and broken ``c = a + b`` loop logic.
+> * Deleted the confusing and broken ``c = a + b`` loop logic.
 2. ### Prevented <ruby>Out-of-Bounds<rt>*陣列越界*</rt><ruby>: 
-> Added `if (a < b) swap(a, b)` to ensure addend is always longer than adder.<br>
-> Limit the addition loop to `adder.size()` to avoid out-of-bounds.
+> * Added `if (a < b) swap(a, b)` to ensure addend is always longer than adder.<br>
+> * Limit the addition loop to `adder.size()` to avoid out-of-bounds.
 <details>
 <summary> <head>click to open(v1)<head> </summary>
 
@@ -141,9 +141,9 @@ for (int i = <ruby>~~addend~~<rt>adder</rt><ruby>.size() - 1; i >= 0; i--)
 </details>
 
 3. ### Reduced Overhead: 
-> Used global vectors. V1 passed vectors by value <sub>copying them every time</sub>, which wasted memory and time.
+> * Used global vectors. V1 passed vectors by value <sub>copying them every time</sub>, which wasted memory and time.
 4. ### Fixed Output Grammar:
-> Added a specific check for "1 carry operation", fixing a strict judge error.
+> * Added a specific check for "1 carry operation", fixing a strict judge error.
 
 ## Complexity Analysis
 - Time complexity： *O(N \* C)
