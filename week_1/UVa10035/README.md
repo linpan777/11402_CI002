@@ -127,7 +127,7 @@ void add(int& times)
 [source code](v2(AC).cpp)
 
 ## Optimization Points:
-1. Removed Dead Code: 
+1. #### Removed Dead Code: 
 Deleted the confusing and broken c = a + b loop logic.
 
 ## Complexity Analysis
