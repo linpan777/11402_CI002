@@ -206,14 +206,14 @@ main:
 </details>
 
 ## Optimization point:
-1. Space Complexity Optimization ($O(D) \to O(1)$):<br>
+1. ### Space Complexity Optimization ($O(D) \to O(1)$):<br>
 Eliminated vector arrays. Used variables (like bool carry) to track whether is carry or not, achieving zero extra space overhead.
 
-2. Improved Time Efficiency (Single-pass computation):<br>
+2. ### Improved Time Efficiency (Single-pass computation):<br>
 Shifted from a two-step "store then add" approach to an "<ruby>on-the-fly<rt>及時</rt></ruby> calculation". This avoids the cost of dynamic array
 <ruby>allocations<rt>*分配*</rt></ruby> (push_back) and processes everything in a single loop.
 
-3. Cleaner Code Structure (Clean Code):<br>
+3. ### Cleaner Code Structure (Clean Code):<br>
 Removed the redundant external ``add()`` function and perfectly <ruby>integrat<rt>*結合*</rt></ruby> `? :` to handle the carry logic within a single ``while`` loop, improving readability.
 
 ## Complexity Analysis
