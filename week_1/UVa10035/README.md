@@ -126,16 +126,16 @@ void add(int& times)
 
 [source code](v2(AC).cpp)
 
-## <kbd>Optimization<rt>*優化*</rt></kbd> Points:
+## <ruby>Optimization<rt>*優化*</rt></ruby> Points:
 1. ### Removed Dead Code: 
 > Deleted the confusing and broken ``c = a + b`` loop logic.
-2. ### Prevented <kbd>Out-of-Bounds<rt>*陣列越界*</rt></kbd>: 
+2. ### Prevented <ruby>Out-of-Bounds<rt>*陣列越界*</rt><ruby>: 
 > Added ``if (a < b) swap(a, b)`` to ensure addend is always longer than adder.
 > Limit the addition loop to ``adder.size()`` to avoid out-of-bounds.
 <details>
 <summary> <head>click to open(v1)<head> </summary>
 
-for (int i = <kbd>~~addend~~<rt>adder</rt></kbd>.size() - 1; i >= 0; i--)
+for (int i = <ruby>~~addend~~<rt>adder</rt><ruby>.size() - 1; i >= 0; i--)
 		addend[i] += adder[i];
 
 </details>
