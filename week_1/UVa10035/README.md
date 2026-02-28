@@ -130,8 +130,8 @@ void add(int& times)
 1. ### Removed Dead Code: 
 > Deleted the confusing and broken ``c = a + b`` loop logic.
 2. ### Prevented <ruby>Out-of-Bounds<rt>*陣列越界*</rt><ruby>: 
-> Added ``if (a < b) swap(a, b)`` to ensure addend is always longer than adder.
-> Limit the addition loop to ``adder.size()`` to avoid out-of-bounds.
+> Added `if (a < b) swap(a, b)` to ensure addend is always longer than adder.<br>
+> Limit the addition loop to `adder.size()` to avoid out-of-bounds.
 <details>
 <summary> <head>click to open(v1)<head> </summary>
 
