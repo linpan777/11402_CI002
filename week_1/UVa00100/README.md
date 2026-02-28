@@ -3,10 +3,11 @@
 ## Problem Description
 Brief description of the problen -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=3&page=show_problem&problem=36)
 
-## Learning Objectives
-1. Learn about 3n+1 conjecture
-2. Practice i/o in C++
-3. loop logic
+> [!Note]
+>## Learning Objectives
+>1. Learn about 3n+1 conjecture
+>2. Practice i/o in C++
+>3. loop logic
 
 ## Preliminary thinking
 ### variable reference
