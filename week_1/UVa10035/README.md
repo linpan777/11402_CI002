@@ -127,9 +127,9 @@ void add(int& times)
 [source code](v2(AC).cpp)
 
 ## <ruby>Optimization<rt>*優化*</rt></ruby> Points:
-1. ### Removed Dead Code: 
+### 1. Removed Dead Code: 
 * Deleted the confusing and broken ``c = a + b`` loop logic.
-2. ### Prevented <ruby>Out-of-Bounds<rt>*陣列越界*</rt><ruby>: 
+### 2. Prevented <ruby>Out-of-Bounds<rt>*陣列越界*</rt><ruby>: 
 * Added `if (a < b) swap(a, b)` to ensure addend is always longer than adder.<br>
 * Limit the addition loop to `adder.size()` to avoid out-of-bounds.
 <details>
@@ -140,9 +140,9 @@ for (int i = <ruby>~~addend~~<rt>adder</rt><ruby>.size() - 1; i >= 0; i--)
 
 </details>
 
-3. ### Reduced Overhead: 
+### 3. Reduced Overhead: 
 * Used global vectors. V1 passed vectors by value <sub>copying them every time</sub>, which wasted memory and time.
-4. ### Fixed Output Grammar:
+### 4. Fixed Output Grammar:
 * Added a specific check for "1 carry operation", fixing a strict judge error.
 
 ## Complexity Analysis
@@ -206,14 +206,14 @@ main:
 </details>
 
 ## Optimization point:
-1. ### Space Complexity Optimization ($O(D) \to O(1)$):<br>
+### 1.Space Complexity Optimization ($O(D) \to O(1)$):<br>
 - Eliminated vector arrays. Used variables (like bool carry) to track whether is carry or not, achieving zero extra space overhead.
 
-2. ### Improved Time Efficiency (Single-pass computation):<br>
+### 2. Improved Time Efficiency (Single-pass computation):<br>
 - Shifted from a two-step "store then add" approach to an "<ruby>on-the-fly<rt>及時</rt></ruby> calculation". This avoids the cost of dynamic array
 <ruby>allocations<rt>*分配*</rt></ruby> (push_back) and processes everything in a single loop.
 
-3. ### Cleaner Code Structure (Clean Code):<br>
+### 3. Cleaner Code Structure (Clean Code):<br>
 - Removed the redundant external ``add()`` function and perfectly <ruby>integrat<rt>*結合*</rt></ruby> `? :` to handle the carry logic within a sisngle ``while`` loop, improving readability.
 
 ## Complexity Analysis
