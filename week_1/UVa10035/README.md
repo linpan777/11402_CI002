@@ -155,3 +155,65 @@ for (int i = <ruby>~~addend~~<rt>adder</rt><ruby>.size() - 1; i >= 0; i--)
 > 💡 緊張就會亂思路！
 > 3. 寫完發現有問題不要東拼西湊，重看邏輯哪裡有問題！
 > 4. 多考慮一些，瘋狂程式的要求很高！換行都會要求！
+
+<details>
+<summary>**Click to see abot v3.version**</summary>
+
+## Thinking
+### variable reference
+| variable | meaning |
+| :--- | :--- |
+| `first` | input number 1 |
+| `second` | input number 2 |
+| `answer` | first%10 + second%10 |
+| `times` | carry times |
+| `carry` | Check if there is a current carry |
+
+### Algorithm logic
+```text
+main:
+1. Read 'first' and 'second'. Stop if both are 0.
+2. Initialize 'times' = 0 and 'carry' = false for each test case.
+3. If 'first' < 'second', swap them so 'first' is always the larger/longer number.
+4. While 'first' is not 0:
+5.      Calculate current digit sum: (first % 10) + (second % 10) + (1 if carry is true, else 0)
+6.      If sum >= 10:
+7.          Increment 'times' by 1
+8.          Set 'carry' to true
+9.      Else:
+10.         Set 'carry' to false
+11.     Divide both 'first' and 'second' by 10 (remove the last digit)
+12. Print the properly formatted result based on 'times'
+```
+<details>
+<summary> <head>點擊查看中文版<head> </summary>
+
+```text
+1. 讀取 'first' 和 'second'。若兩者皆為 0 則結束程式。
+2. 針對每筆測資，初始化 進位次數 (times) = 0 與 當前進位狀態 (carry) = false。
+3. 如果 'first' < 'second'，將兩者交換，確保 'first' 永遠是位數較長的數字。
+4. 當 ('first' 不為 0) 時：
+5.      計算當前個位數總和：(first % 10) + (second % 10) + (若 carry 為 true 則加 1，否則不加)
+6.      如果總和 >= 10：
+7.          進位次數 (times) + 1
+8.          將進位狀態 (carry) 設為 true
+9.      否則：
+10.         將進位狀態 (carry) 設為 false
+11.     將 'first' 與 'second' 同時除以 10 (削掉最後一位數字)
+12. 根據進位次數，印出對應單/複數的結果字串
+```
+</details>
+
+## Optimization point:
+1. ### Space Complexity Optimization ($O(D) \to O(1)$):
+Eliminated vector arrays. Used variables (like bool carry) to track whether is carry or not, achieving zero extra space overhead.
+2. ### Improved Time Efficiency (Single-pass computation):
+Shifted from a two-step "store then add" approach to an "<ruby>on-the-fly<rt>及時</rt></ruby> calculation". This avoids the cost of dynamic array <ruby>allocations<rt>*分配*</rt></ruby> (push_back) and processes everything in a single loop.
+3. ### Cleaner Code Structure (Clean Code):
+Removed the redundant external ``add()`` function and perfectly <ruby>integrat<rt>*結合*</rt></ruby> `? :` to handle the carry logic within a single ``while`` loop, improving readability.
+
+## Complexity Analysis
+- Time complexity： $O(\log_{10}(\max(A, B)))$
+- Space complexity： *O(1)
+
+</details>
