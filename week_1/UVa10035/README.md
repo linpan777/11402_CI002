@@ -5,7 +5,7 @@ Brief description of the problen -> [here](https://onlinejudge.org/index.php?opt
 
 > [!Note]
 >## Learning Objectives
->1. Digit Extraction: Learning to use modulo ``(% 10)`` to isolate the last digit and division ``(/ 10)`` to shift to the next digit, processing the number from right to left.
+>1. Digit Extraction: Learning to use modulo ``% 10`` to isolate the last digit and division ``(/ 10)`` to shift to the next digit, processing the number from right to left.
 >2. Learning how to use a variable to store the "carry" status from the previous column's addition and pass it forward into the next loop iteration.
 
 ## Thinking
@@ -126,12 +126,27 @@ void add(int& times)
 
 [source code](v2(AC).cpp)
 
-## Optimization Points:
-1. #### Removed Dead Code: 
-> Deleted the confusing and broken c = a + b loop logic.
+## <kbd>Optimization<rt>*優化*</rt></kbd> Points:
+1. ### Removed Dead Code: 
+> Deleted the confusing and broken ``c = a + b`` loop logic.
+2. ### Prevented <kbd>Out-of-Bounds<rt>*陣列越界*</rt></kbd>: 
+> Added ``if (a < b) swap(a, b)`` to ensure addend is always longer than adder.
+> Limit the addition loop to ``adder.size()`` to avoid out-of-bounds.
+<details>
+<summary> <head>click to open(v1)<head> </summary>
+
+for (int i = <kbd>~~addend~~<rt>adder</rt></kbd>.size() - 1; i >= 0; i--)
+		addend[i] += adder[i];
+
+</details>
+
+3. ### Reduced Overhead: 
+> Used global vectors. V1 passed vectors by value <sub>copying them every time</sub>, which wasted memory and time.
+4. ### Fixed Output Grammar:
+> Added a specific check for "1 carry operation", fixing a strict judge error.
 
 ## Complexity Analysis
-- Time complexity：*O(N \* C)
+- Time complexity： *O(N \* C)
 - Space complexity： *O(1)
 
 > [!Note]
