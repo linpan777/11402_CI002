@@ -156,8 +156,9 @@ for (int i = <ruby>~~addend~~<rt>adder</rt><ruby>.size() - 1; i >= 0; i--)
 > 3. 寫完發現有問題不要東拼西湊，重看邏輯哪裡有問題！
 > 4. 多考慮一些，瘋狂程式的要求很高！換行都會要求！
 
+## Version 3
 <details>
-<summary>**Click to see abot v3.version**</summary>
+<summary>Click to see abot v3</summary>
 
 ## Thinking
 ### variable reference
