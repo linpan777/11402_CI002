@@ -128,7 +128,7 @@ void add(int& times)
 
 ## Optimization Points:
 1. #### Removed Dead Code: 
-Deleted the confusing and broken c = a + b loop logic.
+> Deleted the confusing and broken c = a + b loop logic.
 
 ## Complexity Analysis
 - Time complexity：*O(N \* C)
