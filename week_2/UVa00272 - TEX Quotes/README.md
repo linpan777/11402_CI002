@@ -65,8 +65,8 @@ Where $L$ is the length of the longest line in the input data.
 <summary><head>點擊查看中文版</head></summary>
 
 ### Time Complexity: $O(N)$
-$N$ 為輸入資料的總字元數。
+> $N$ 為輸入資料的總字元數。
 
 ### Space Complexity: $O(L)$
-$L$ 為輸入資料中「最長一行」的長度
+> $L$ 為輸入資料中「最長一行」的長度
 </details>
