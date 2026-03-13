@@ -12,7 +12,7 @@ int main()
 	{
 		for (int i{ 0 }; i < sentence.size(); i++)
 		{
-			if (sentence[i] == '"')
+			if (sentence[i] == '"')//只要遇到"就進判斷，利用bool來確認是第一個還是第二個
 			{
 				if (check == 0)
 				{
@@ -26,7 +26,7 @@ int main()
 				}
 				continue;
 			}
-			cout << sentence[i];
+			cout << sentence[i];//沒有遇到就正常的cout sentence裡的字
 		}
 		cout << '\n';
 	}
