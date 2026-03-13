@@ -56,10 +56,10 @@ The core of this problem is "string replacement." We need to read multiple lines
 
 ## Complexity:
 ### Time Complexity: $O(N)$
-Where $N$ is the total number of characters in the input data.
+> Where $N$ is the total number of characters in the input data.
 
 ### Space Complexity: $O(L)$
-Where $L$ is the length of the longest line in the input data.
+> Where $L$ is the length of the longest line in the input data.
 
 <details>
 <summary><head>點擊查看中文版</head></summary>
