@@ -7,7 +7,8 @@ The core of this problem is "string replacement." We need to read multiple lines
 
 <details>
 <summary><head>點擊查看中文版</head></summary>
-核心是「字串替換」，讀取多行文字，將雙引號 " 替換成題目要求的專屬格式，規則為交替進行：遇到的第一個 " -> ` `，第二個 " -> ''，其餘所有字元則照原樣輸出。
+
+核心是「字串替換」，讀取多行文字，將雙引號 " 替換成題目要求的專屬格式，規則為交替進行：遇到的第一個 `"` -> `` ` ` ``，第二個 `"` -> `''`，其餘所有字元則照原樣輸出。
 </details>
 
 ## Thinking
