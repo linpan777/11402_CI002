@@ -2,7 +2,7 @@
 
 ## 題目URL -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=208&mosmsg=Submission+received+with+ID+31019966#google_vignette)
 
-## 簡介:
+## Introduction:
 The core of this problem is "string replacement." We need to read multiple lines of text and replace the double quotes (") with the specific format required by the problem. The replacement rule alternates: the first `"` -> `` ` ` ``, and the second `"` -> `''`. All other characters are output exactly as they are.
 
 <details>
