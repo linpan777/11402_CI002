@@ -3,7 +3,7 @@
 ## 題目URL -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=208&mosmsg=Submission+received+with+ID+31019966#google_vignette)
 
 ## 簡介:
-The core of this problem is "string replacement." We need to read multiple lines of text and replace the double quotes (") with the specific format required by the problem. The replacement rule alternates: the first " encountered is replaced with `` \` \` ``, and the second " is replaced with ''. All other characters are output exactly as they are.
+The core of this problem is "string replacement." We need to read multiple lines of text and replace the double quotes (") with the specific format required by the problem. The replacement rule alternates: the first `"` -> `` ` ` ``, and the second `"` -> `''`. All other characters are output exactly as they are.
 
 <details>
 <summary><head>點擊查看中文版</head></summary>
@@ -52,4 +52,21 @@ The core of this problem is "string replacement." We need to read multiple lines
 ```
 ```text
 
+</details>
+
+## Complexity:
+### Time Complexity: $O(N)$
+Where $N$ is the total number of characters in the input data.
+
+### Space Complexity: $O(L)$
+Where $L$ is the length of the longest line in the input data.
+
+<details>
+<summary><head>點擊查看中文版</head></summary>
+
+### Time Complexity: $O(N)$
+$N$ 為輸入資料的總字元數。
+
+### Space Complexity: $O(L)$
+$L$ 為輸入資料中「最長一行」的長度
 </details>
