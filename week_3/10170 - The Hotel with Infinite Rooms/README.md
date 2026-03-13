@@ -13,13 +13,15 @@ The core of this problem is "simulation" or "sequence progression." Given an ini
 
 ## Thinking
 ### variable reference:
+| variable | meaning |
+| :--- | :--- |
 | `people` | The size of the current group staying in the hotel |
 | `day` | The remaining days to reach the target day |
 
 ## 邏輯:
 ```text
 1. while cin people, day // Read inputs until EOF
-2.      while(day != 0) // Autually it's unless, use `true` is OK
+2.      while(day != 0) // Autually it's unless, use true is OK
 3.          day -= people // Subtract current group size from remaining days
 4.          if(day <= 0) // Reached or passed the target day
 5.              break
@@ -33,7 +35,7 @@ The core of this problem is "simulation" or "sequence progression." Given an ini
 
 ```text
 1. while cin people, day // 讀取初始人數與目標天數直到 EOF
-2.      while(day != 0) //其實沒用，直接用`true`也可以
+2.      while(day != 0) //其實沒用，直接用 true 也可以
 3.          day -= people // 將目標天數減去當前這組人住的天數
 4.          if(day <= 0) // 如果天數扣完 <= 0，代表已經到了要求的天數
 5.              break
