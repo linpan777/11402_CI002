@@ -3,10 +3,14 @@
 ## 題目URL -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=0&problem=208&mosmsg=Submission+received+with+ID+31019966#google_vignette)
 
 ## 簡介:
-The core task of this problem is "string replacement." Read multiple lines of text and replace the double quotes `(")` with the specific format used by the TEX typesetting system. The replacement rule alternates: the first " encountered is replaced with two left single quotes `(\` \`)`, and the second " is replaced with two right single quotes `('')`. All other characters, including spaces and punctuation, are output exactly as they are.
+The core of this problem is "string replacement." We need to read multiple lines of text and replace the double quotes (") with the specific format required by the problem. The replacement rule alternates: the first " encountered is replaced with `` \` \` ``, and the second " is replaced with ''. All other characters are output exactly as they are.
+
+<details>
+<summary><head>點擊查看中文版</head></summary>
+核心是「字串替換」，讀取多行文字，將雙引號 " 替換成題目要求的專屬格式，規則為交替進行：遇到的第一個 " -> ` `，第二個 " -> ''，其餘所有字元則照原樣輸出。
+</details>
 
 ## Thinking
-
 ### variable reference:
 | variable | meaning |
 | :--- | :--- |
@@ -15,59 +19,37 @@ The core task of this problem is "string replacement." Read multiple lines of te
 
 ### version 1 - 邏輯:
 ```text
-1. cin >> T
-2. while(T--)
-3.      cin month, date
-4.      Initialize tm time_info(0)
-5.      time_info.tm_year = 2011 - 1900 // Years since 1900
-6.      time_info.tm_mon = month - 1 // Months are 0-indexed (0-11)
-7.      time_info.tm_mday = date
-8.      mktime(&time_info) // Automatically computes the weekday (tm_wday)
-9.      cout wday[time_info.tm_wday]
+1. bool check = 0
+2. while(getline(cin, sentence)) // Read line by line until EOF
+3.      for(0 -> sentence.size() - 1) // Traverse each character
+4.          if(sentence[i] == '"') // Check if it's a double quote
+5.              if(check == 0)
+6.                  cout ``
+7.                  check = 1
+8.              else
+9.                  cout ''
+10.                 check = 0
+11.             continue
+12.         cout sentence[i] // Output normal characters
+13.     cout '\n' // Restore the newline character consumed by getline
 ```
 <details>
 <summary><head>點擊查看中文版</head></summary>
+```text
+1. 初始化 check = 0 (代表預期遇到的是開頭引號)
+2. while(getline(cin, sentence)) //使用 getline 讀取直到 EOF
+3.      for(0 -> sentence.size() - 1) //遍歷這行字串 sentence 中的每一個字元
+4.          if(sentence[i] == '"') //如果當前字元是 '"'
+5.              if (check == 0) // 如果是左引號
+6.                  輸出 "``"
+7.                  更新 check = 1 (切換狀態)
+8.              else            // 如果是右引號
+9.                  輸出 "''"
+10.                 更新 check = 0 (切換狀態)
+11.             continue // 處理完引號，跳過後續步驟，直接進入下一次迴圈
+12.         輸出 sentence[i] //如果不是引號，就正常印出原本的字元
+13.     輸出 '\n' 換行 //因為 getline 會把換行符號吃掉，輸出時需手動補回
+```
+```text
 
-```text
-1. 讀入 T (測資數量)
-2. while迴圈 (執行 T 次)
-3.      讀入 month, date
-4.      初始化 tm time_info 為 0
-5.      設定 time_info 的年份為 2011 - 1900 (距離 1900 年的年數)
-6.      設定 time_info 的月份為 month - 1 (月份從 0 開始算)
-7.      設定 time_info 的日期為 date
-8.      呼叫 mktime(&time_info) 自動計算星期幾並存入 tm_wday
-9.      輸出 wday[time_info.tm_wday]
-```
-```text
-string wday[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}
-```
-</details>
-
-### version 2 - 邏輯:
-```text
-1. cin >> T
-2. while(T--)
-3.      cin >> month >> date
-4.      Initialize day = 0
-5.      for(i = 0 -> month - 1) // Accumulate days of previous months
-6.          day += month_a[i]
-7.      cout wday[(day + date) % 7] << '\n'
-```
-<details>
-<summary><head>點擊查看中文版</head></summary>
-
-```text
-1. 讀入 T
-2. while迴圈 (執行 T 次)
-3.      讀入 month 和 date
-4.      初始化 day = 0
-5.      for迴圈 (i 從 0 跑到 month - 1) // 累加目標月份之前的所有天數
-6.          day += month_a[i]
-7.      輸出 wday[(day + date) % 7] 並換行
-```
-```text
-string wday[7] = {"Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"};
-int month_a[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-```
 </details>
