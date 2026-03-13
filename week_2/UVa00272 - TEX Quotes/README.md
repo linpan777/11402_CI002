@@ -71,3 +71,6 @@ The core of this problem is "string replacement." We need to read multiple lines
 ### Space Complexity: $O(L)$
 > $L$ 為輸入資料中「最長一行」的長度
 </details>
+
+> [!Note]
+> 1. 用for(char c: sentence)感覺會更好，但我好懶得改，就先這樣

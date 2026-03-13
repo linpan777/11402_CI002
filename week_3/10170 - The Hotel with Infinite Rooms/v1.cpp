@@ -8,7 +8,7 @@ int main()
 
 	while (cin >> people >> day)
 	{
-		while (day != 0)
+		while (day != 0)//其實沒意義，直接改true也可以
 		{
 			day -= people;
 
