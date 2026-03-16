@@ -30,13 +30,16 @@ The core of this problem is to find the majority element that appears more than 
 
 第 2 個兵 `2`：majority = 2, count = 2
 
-第 3 個兵 `1`：majority = 2, count = 1 //2被1消耗了
+第 3 個兵 `1`：majority = 2, count = 1 
+> //2被1消耗了
 
-第 4 個兵 `1`：majority = 2, count = 0 //2被1消耗完了，輪到1佔據主場
+第 4 個兵 `1`：majority = 2, count = 0 
+> //2被1消耗完了，輪到1佔據主場
 
 第 5 個兵 `1`：majority = 1, count = 1
 
-第 6 個兵 `2`：majority = 1, count = 0 //2再次消耗完1，最終佔據主場直到最後
+第 6 個兵 `2`：majority = 1, count = 0 
+> //2再次消耗完1，最終佔據主場直到最後
 
 第 7 個兵 `2`：majority = 2, count = 1
 </details>
