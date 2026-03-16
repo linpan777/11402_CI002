@@ -11,8 +11,35 @@ The core of this problem is to find the majority element that appears more than 
 <summary><head>點擊查看中文版</head></summary>
 
 核心是找出陣列中出現次數超過 $\lfloor n / 2 \rfloor$ 的多數元素。因為題目保證該元素必定存在，我們可以使用兩種策略：
-1. **排序法：** 將陣列從小到大排序後，正中間的元素必定是多數元素。
-2. **Boyer-Moore 投票演算法：** 透過不同元素互相抵銷的邏輯，因為多數元素的數量超過一半，最後存活下來的一定是它。
+1. **排序法：** 
+`利用sort`將陣列從小到大排序後，正中間的元素必定是多數元素。
+2. **Boyer-Moore 投票演算法：** 
+透過不同元素互相抵銷的邏輯，因為多數元素的數量超過一半，最後存活下來的一定是它。
+
+<details>
+<summary><head>點擊查看演算法詳情</head></summary>
+
+### core logic：一換一的`抵銷`
+這個演算法能成立的唯一大前提是：`目標數字的數量，保證超過陣列總長度的一半 ($> \lfloor n/2 \rfloor$)`<br>
+一換一下來，超過一半的那個目標數一定會存活到最後
+
+### 實際演練 (Dry Run)：
+假設輸入陣列是 [2, 2, 1, 1, 1, 2, 2]，要找的多數是 2
+
+第 1 個兵 `2`：majority = 2, count = 1
+
+第 2 個兵 `2`：majority = 2, count = 2
+
+第 3 個兵 `1`：majority = 2, count = 1 //2被1消耗了
+
+第 4 個兵 `1`：majority = 2, count = 0 //2被1消耗完了，輪到1佔據主場
+
+第 5 個兵 `1`：majority = 1, count = 1
+
+第 6 個兵 `2`：majority = 1, count = 0 //2再次消耗完1，最終佔據主場直到最後
+
+第 7 個兵 `2`：majority = 2, count = 1
+</details>
 </details>
 
 ## Thinking
