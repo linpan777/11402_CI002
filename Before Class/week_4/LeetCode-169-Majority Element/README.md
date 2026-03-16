@@ -19,11 +19,11 @@ The core of this problem is to find the majority element that appears more than 
 <details>
 <summary><head>點擊查看演算法詳情</head></summary>
 
-### core logic：一換一的`抵銷`
+## core logic：一換一的*抵銷*
 這個演算法能成立的唯一大前提是：`目標數字的數量，保證超過陣列總長度的一半 ($> \lfloor n/2 \rfloor$)`<br>
 一換一下來，超過一半的那個目標數一定會存活到最後
 
-### 實際演練 (Dry Run)：
+## 實際演練 (Dry Run)：
 假設輸入陣列是 [2, 2, 1, 1, 1, 2, 2]，要找的多數是 2
 
 第 1 個兵 `2`：majority = 2, count = 1
