@@ -52,9 +52,9 @@ The core of this problem is to find the majority element that appears more than 
 
 ```text
 1. 初始化 majority 為第一個數字，count 為 1
-2. 迴圈從第二個數字 (i = 1) 開始遍歷陣列
-3.      如果遇到同陣營數字 count 加 1，否則 count 減 1 (一換一抵銷)
-4.      如果 count 歸零 (兵力被消耗光了)
+2. 迴圈從第二個數字 (i = 1) //開始遍歷陣列
+3.      如果遇到同陣營數字 count 加 1，否則 count 減 1 //一換一抵銷
+4.      如果 count 歸零 //兵力被消耗光了
 5.          將當前數字設為新的候選人 majority
 6.          將 count 重新加 1
 7. 迴圈結束後，回傳存活到最後的 majority
