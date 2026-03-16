@@ -19,9 +19,9 @@ The core of this problem is to rotate an $n \times n$ 2D matrix by 90 degrees cl
 轉置會把`列`變成`行`，此時方向雖然對了，但左右是顛倒的，所以最後再針對每一列進行反轉即可
 
 ## 實際演練 (Dry Run)：
-假設輸入矩陣是一個 $3 \times 3$ 的矩陣：
-`[1, 2, 3]`
-`[4, 5, 6]`
+假設輸入矩陣是一個 $3 \times 3$ 的矩陣：<br>
+`[1, 2, 3]`<br>
+`[4, 5, 6]`<br>
 `[7, 8, 9]`
 
 **Step 1: 轉置 (Transpose)**
