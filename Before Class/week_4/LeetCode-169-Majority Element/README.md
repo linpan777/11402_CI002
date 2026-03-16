@@ -61,39 +61,6 @@ The core of this problem is to find the majority element that appears more than 
 ```
 </details>
 
-## Code:
-
-### Version 1 (Sorting)
-```cpp
-class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        return nums[nums.size() / 2];
-    }
-};
-```
-
-### Version 2 (Boyer-Moore)
-```cpp
-class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
-        int majority = nums[0], count{1};
-        for(int i{1}; i < nums.size(); i++)
-        {
-            count = (majority == nums[i]) ? count += 1 : count -= 1;
-            if(count == 0)
-            {
-                majority = nums[i];
-                count++;
-            }
-        }
-        return majority;
-    }    
-};
-```
-
 ## Complexity
 ### Time Complexity: 
 * **Version 1:** $O(N \log N)$ - Due to the time taken by the built-in sorting algorithm.
