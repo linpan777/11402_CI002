@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(0), cin.tie(0);
+	int T, n, tempCase; 
+	cin >> T;
+	while (T--)
+	{
+		cin >> n;
+		int Case[101] = { 0 };
+		int coordinate{ 0 };
+		string struction;
+
+		cin.ignore();
+		for (int i{ 1 }; i <= n; i++)
+		{
+			getline(cin, struction);
+			switch (struction[0])
+			{
+			case 'L':
+				coordinate--;
+				Case[i] = -1;
+				break;
+			case 'R':
+				coordinate++;
+				Case[i] = 1;
+				break;
+			case 'S':
+				if (struction.size() == 10)
+					tempCase = ((struction[8] - '0') * 10) + (struction[9] - '0');
+				else if (struction.size() == 11)
+					tempCase = 100;
+				else
+					tempCase = struction[8] - '0';
+
+				coordinate += Case[tempCase];
+				Case[i] = Case[tempCase];
+				break;
+			}
+		}
+		cout << coordinate << '\n';
+	}
+}
