@@ -13,7 +13,7 @@ The core of this problem is "matrix expansion" or "center-based search." Given a
 1. 中心點固定在特定的格子上，所以合法正方形的邊長一定會是奇數，透過設定一個半徑 `d` 向外擴張，每次擴張時檢查新的邊界是否超出網格，並確認該範圍內的所有字元是否與中心點的字元（`goalChar`）相同。
 
 > [!NOTE]
-> 一句話筆記：遇到固定中心的矩陣擴張，邊長必為奇數，用半徑 d 向外擴張檢查邊界與字元。**
+> 一句話筆記：遇到固定中心的矩陣擴張，邊長必為奇數，用半徑 d 向外擴張檢查邊界與字元。
 </details>
 
 ## Thinking
