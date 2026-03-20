@@ -2,7 +2,18 @@
 
 ## 題目URL -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=23&page=show_problem&problem=2091)
 
-## Thinking
+## Introduction:
+The core of this problem is a "mathematical simulation" or "exchange mechanism." Given an initial number of cola bottles purchased, we need to calculate the total number of colas that can be consumed by repeatedly exchanging empty bottles for new colas. 
+1. According to the problem's "borrowing rule," 2 empty bottles can be exchanged for 1 new cola. Therefore, the total colas consumed equals the initial bottles plus the number obtained through unlimited exchanges.
+
+<details>
+<summary><head>點擊查看中文版</head></summary>
+
+核心是「數學模擬」、「兌換機制」。給定初始購買的可樂數量，需要計算透過不斷用空瓶兌換新可樂，最終能喝到的總數量。
+1. 根據題目的「借空瓶規則」，每 2 個空瓶可以兌換 1 瓶新可樂，因此總消費量 = 初始購買數量 + 不斷極限兌換所得。
+
+> **一句話筆記：初始 n 瓶可樂，2 個空瓶換 1 瓶新的，最終能喝 n + n/2 瓶。**
+</details>
 
 ### variable reference:
 | variable | meaning |
