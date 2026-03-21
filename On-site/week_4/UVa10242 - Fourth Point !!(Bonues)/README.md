@@ -1,73 +1,122 @@
-# 10242 - Fourth Point!!
+# 10242 - Fourth Point !!
 
-## 題目URL -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=23&page=show_problem&problem=1183)
+## 題目URL -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=14&page=show_problem&problem=1183)
 
-## Introduction:
-The core of this problem is "geometric computation" or "parallelogram property." Given three vertices of a rectangle/parallelogram (where one point appears twice among four input points), we need to find the fourth vertex. The key insight is using the parallelogram property: for a parallelogram with vertices A, B, C, D, the diagonals bisect each other, so the fourth point can be calculated as **D = A + B - C**, where C is the duplicated point.
+## 簡介:
+給定平行四邊形兩個相鄰邊的端點座標（輸入 4 個點，其中必定有 2 個點座標完全相同，即為兩邊的交點）。要求找出平行四邊形第四個對角點的座標。
+1. **核心幾何性質**：第四點 $D = A + B - C$（其中 $C$ 為交點，$A, B$ 為另外兩端點）。<br>
+2. **數學降維優化**：利用 4 個輸入點的總和 $Sum = A + B + 2C$，推導出 $D = Sum - 3C$ 來簡化程式碼。<br>
+3. 可採用函式逐一配對找出 A、B、C（V1），或是使用結構體配合數學公式降維打擊（V2）。
 
 <details>
-<summary><head>點擊查看中文版</head></summary>
+<summary><head>點擊查看 D = Sum - 3C 數學降維打擊的原理</head></summary>
 
-核心是「幾何計算」或「平行四邊形性質」。給定矩形/平行四邊形的三個不同頂點（輸入四個點中有一個重複），需要找出第四個頂點。關鍵洞察是利用平行四邊形性質：對於平行四邊形的四個頂點，對角線會互相平分，因此第四點可以計算為 **D = A + B - C**，其中 C 是重複的點。
+### 基礎向量公式：$D = A + B - C$
+在平行四邊形中，從交點 $C$ 走到端點 $A$ 的位移量（向量 $A-C$），必定等於從端點 $B$ 走到第四點 $D$ 的位移量（向量 $D-B$）。
+- 推導：$A - C = D - B$ 
+- 移項：$D = A + B - C$
 
-> **一句話筆記：給四個點找出第四個頂點，利用平行四邊形的對角線互相平分性質：第四點 = A + B - C（C 為重複點）。**
+### 進階優化公式：$D = Sum - 3C$
+題目輸入會給我們 4 個點（第一條邊 2 個、第二條邊 2 個）。因為兩邊相鄰，所以這 4 個點裡面，包含了：**一個 $A$、一個 $B$、和兩個重複的 $C$**。
+- 如果我們把這 4 個點加總：$Sum = A + B + 2C$
+- 我們原本需要的答案是：$A + B - C$
+- 仔細觀察可以發現，只要拿總和 $Sum$ 減去 3 個 $C$，就會剛好等於答案：
+  $Sum - 3C = (A + B + 2C) - 3C = A + B - C$
+
+### 為什麼 V2 要用這個數學技巧？
+- **免去分配煩惱**：不需要寫一堆 `if-else` 去把剩下的點指派給變數 A 或 B，只要找出重複的點 C 是誰就好。
+- **大幅縮減程式碼**：不用傳遞多達 14 個參數的函式，邏輯超乾淨。
+
 </details>
 
 ## Thinking
+
 ### variable reference:
 | variable | meaning |
 | :--- | :--- |
-| `Point` | A struct containing `x` and `y` coordinates |
-| `a, b, c, d` | The four input points |
-| `samePoint` | The point that appears twice (one vertex of the parallelogram) |
-| `sumX, sumY` | The sum of x and y coordinates of all four points |
+| `x1~y4` / `a, b, c, d` | The coordinates of the 4 input points |
+| `xA, yA, xB, yB` | <sub>Used in `V1`</sub> The coordinates of the two non-intersecting endpoints |
+| `xC, yC` / `samePoint` | The coordinates of the intersecting point (Point C) |
+| `sumX, sumY` | <sub>Used in `V2`</sub> The sum of the X and Y coordinates of all 4 input points |
 
 <details>
 <summary><head>點擊查看中文版</head></summary>
 
-### 變數參考：
-| variable | meaning |
+| 變數 | 說明 |
 | :--- | :--- |
-| `Point` | 包含 `x` 和 `y` 座標的結構體 |
-| `a, b, c, d` | 四個輸入的點 |
-| `samePoint` | 重複出現的點（平行四邊形的一個頂點） |
-| `sumX, sumY` | 四個點的 x 和 y 座標的總和 |
+| `x1~y4` / `a, b, c, d` | 輸入的 4 個點座標 |
+| `xA, yA, xB, yB` | <sub>用於 `V1`</sub> 兩個非交點的端點座標 |
+| `xC, yC` / `samePoint` | 兩條邊相交的交點座標（點 C） |
+| `sumX, sumY` | <sub>用於 `V2`</sub> 輸入的 4 個點之 X 與 Y 座標總和 |
+
 </details>
 
-## 邏輯:
+### version 1 - 邏輯:
 ```text
-1. Read four points (a, b, c, d)
-2. Calculate sum of all x-coordinates and y-coordinates
-3. Find which point is duplicated (appears twice)
-4. Apply parallelogram formula: 
-   - Fourth Point = (sumX, sumY) - 2*(duplicated point)
-5. Output the fourth point with 3 decimal places
+1. while cin >> 8 coordinates (x1 to y4)
+2.      Call judge() to find the intersecting point C
+3.      Assign the remaining points to A and B inside judge()
+4.      Print (xA + xB - xC) and (yA + yB - yC) formatted to 3 decimal places
 ```
 
 <details>
 <summary><head>點擊查看中文版</head></summary>
 
 ```text
-1. 讀取四個點 (a, b, c, d)
-2. 計算所有點的 x 座標總和與 y 座標總和
-3. 找出哪一個點重複出現（出現兩次）
-4. 應用平行四邊形公式：
-   - 第四點 = (sumX, sumY) - 2*(重複的點)
-5. 輸出第四點，精度至小數點第 3 位
+1. 讀取 8 個浮點數 (x1 到 y4) 直到 EOF
+2.      呼叫 judge() 函式找出重複的交點 C
+3.      在 judge() 內，將另外兩個不重複的點分別賦值給 A 和 B
+4.      利用公式 (A + B - C)，精準輸出小數點後 3 位的座標
 ```
 </details>
 
-## Complexity
-### Time Complexity: $O(1)$
-> Each test case involves only constant-time operations: 4 point comparisons and 4 arithmetic operations per case.
-### Space Complexity: $O(1)$
-> Only a fixed number of variables are used regardless of input size.
+### version 2 - 邏輯:
+```text
+1. Define struct Point { double x, y }
+2. while cin >> 4 Points (a, b, c, d)
+3.      sumX = a.x + b.x + c.x + d.x
+4.      sumY = a.y + b.y + c.y + d.y
+5.      Use if/else to find the identical point and store it in samePoint (C)
+6.      Print (sumX - 3 * samePoint.x) and (sumY - 3 * samePoint.y) formatted to 3 decimal places
+```
 
 <details>
 <summary><head>點擊查看中文版</head></summary>
 
-### Time Complexity: $O(1)$
-> 每個測資只涉及常數時間的操作：4 個點的比較和 4 次算術運算。
-### Space Complexity: $O(1)$
-> 不管輸入大小如何，只使用固定數量的變數。
+```text
+1. 定義結構體 Point 包含 x 和 y 座標
+2. 讀取 4 個 Point (a, b, c, d) 直到 EOF
+3.      計算 4 個點的 x 座標總和 sumX
+4.      計算 4 個點的 y 座標總和 sumY
+5.      使用 if/else 找出座標相同的點，並存入 samePoint (即交點 C)
+6.      利用優化公式 (Sum - 3C)，精準輸出小數點後 3 位的座標
+```
 </details>
+
+## 複雜度分析
+
+| 版本 | 時間複雜度 | 空間複雜度 |
+| :--- | :--- | :--- |
+| V1 | $O(1)$ per test case | $O(1)$ - uses standard local double variables |
+| V2 | $O(1)$ per test case | $O(1)$ - uses Point structs |
+
+<details>
+<summary><head>點擊查看中文版</head></summary>
+
+| 版本 | 時間複雜度 | 空間複雜度 |
+| :--- | :--- | :--- |
+| V1 | $O(1)$ 每個測資 | $O(1)$ - 使用基本的區域變數 |
+| V2 | $O(1)$ 每個測資 | $O(1)$ - 使用 Point 結構體 |
+
+</details>
+
+## 版本對比
+
+| 特性 | V1 | V2 |
+| :--- | :--- | :--- |
+| 資料結構 | 散裝區域變數 (`double`) | 結構體封裝 (`struct Point`) |
+| 函式參數數量 | 14 個參數（易傳錯） | 無額外函式，直接在主程式運算 |
+| 數學邏輯 | $D = A + B - C$ | $D = Sum - 3C$ |
+| 程式碼簡潔度 | 低 | 高 |
+| 易讀性 | 中（找 A、B 略顯繁瑣） | 高（直接找 C 即可） |
+| 推薦指數 | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
