@@ -64,8 +64,53 @@ Sum - 3C = (A + B + 2C) - 3C = A + B - C
 
 </details>
 
-## Thinking
+<details>
+<summary><head>點擊查看 setprecision 的用法</head></summary>
 
+### setprecision 的基本用法
+
+`setprecision(n)` 用來控制浮點數的精度（小數位數）。但其行為取決於是否搭配 `fixed` 使用。
+
+### 有無 `fixed` 的區別
+
+#### 情況一：單獨使用 `setprecision(n)`（無 `fixed`）
+
+顯示**總共 n 位有效數字**（科學記號法）
+
+```cpp
+double x = 123.456789;
+cout << setprecision(3) << x;  // 輸出：123 (3個有效數字)
+
+double y = 0.00456789;
+cout << setprecision(3) << y;  // 輸出：4.57e-03 (科學記號)
+```
+
+#### 情況二：搭配 `fixed` 使用
+
+顯示**小數點後 n 位**（固定點法）
+
+```cpp
+double x = 123.456789;
+cout << fixed << setprecision(3) << x;  // 輸出：123.457 (小數點後3位)
+
+double y = 0.00456789;
+cout << fixed << setprecision(3) << y;  // 輸出：0.005 (小數點後3位)
+```
+
+### 這題的做法
+
+```cpp
+cout << fixed << setprecision(3) << resultX << ' ' << resultY << '\n';
+```
+
+使用 `fixed + setprecision(3)` 確保：
+- ✅ 輸出結果精確到小數點後 3 位
+- ✅ 避免科學記號
+- ✅ 符合題目要求的輸出格式
+
+</details>
+
+## Thinking
 ### variable reference:
 | variable | meaning |
 | :--- | :--- |
@@ -88,20 +133,22 @@ Sum - 3C = (A + B + 2C) - 3C = A + B - C
 
 ### version 1 - 邏輯:
 ```text
-1. while cin >> 8 coordinates (x1 to y4)
-2.      Call judge() to find the intersecting point C
-3.      Assign the remaining points to A and B inside judge()
-4.      Print (xA + xB - xC) and (yA + yB - yC) formatted to 3 decimal places
+1. while cin >> 8 coordinates (Points: P1, P2, P3, P4)
+2.      Inside judge(), compare points to find the identical pair (Point C):
+3.          If P1 == P3 or P1 == P4 -> C = P1, remaining points are A and B
+4.          If P2 == P3 or P2 == P4 -> C = P2, remaining points are A and B
+5.      Print (xA + xB - xC) and (yA + yB - yC) formatted to 3 decimal places
 ```
 
 <details>
 <summary><head>點擊查看中文版</head></summary>
 
 ```text
-1. 讀取 8 個浮點數 (x1 到 y4) 直到 EOF
-2.      呼叫 judge() 函式找出重複的交點 C
-3.      在 judge() 內，將另外兩個不重複的點分別賦值給 A 和 B
-4.      利用公式 (A + B - C)，精準輸出小數點後 3 位的座標
+1. 讀取 8 個浮點數 (代表 P1, P2, P3, P4 四個點) 直到 EOF
+2.      在 judge() 內比對座標，尋找重複的交點 C：
+3.          若 P1 等於 P3 或 P4，則 C = P1，剩餘兩點為 A 和 B
+4.          若 P2 等於 P3 或 P4，則 C = P2，剩餘兩點為 A 和 B
+5.      利用公式 (A + B - C)，精準輸出小數點後 3 位的座標
 ```
 </details>
 
