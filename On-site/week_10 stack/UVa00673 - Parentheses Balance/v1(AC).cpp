@@ -18,7 +18,7 @@ int main()
 				parentheses.push(c);
 
             //首先判斷前面是否對應的上括號，
-            //事就pop掉，否則一樣push
+            //是就pop掉，否則一樣push
 			if (c == ']')
 				if (parentheses.top() == '[')
 					parentheses.pop();
@@ -42,7 +42,7 @@ Sample Input
 12
 
 ([])
-(([()])))
+(([()]))
 ([()[]()])()
 (([()])
 ([])

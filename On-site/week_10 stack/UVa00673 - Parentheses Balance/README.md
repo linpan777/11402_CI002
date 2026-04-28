@@ -3,8 +3,21 @@
 ## 題目URL -> [here](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=8&page=show_problem&problem=614)
 
 ## 簡介
-**括號匹配**問題，主要考察對 **資料結構 —— 堆疊 (Stack)** 的應用。
-題目會給定一個字串，裡面可能包含小括號 `()` 和中括號 `[]`。我們需要判斷該字串中的括號是否「完全平衡且配對正確」。
+**括號匹配**問題，主要考察對 **資料結構 —— 堆疊 (Stack)** 的應用
+題目會給定一個字串，裡面可能包含小括號 `()` 和中括號 `[]`
+
+1. 判斷該字串中的括號是否「完全平衡且配對正確」。
+`ex. (([()]))`
+
+<details>
+<summary><head>點擊查看陷阱與需要注意的點</head></summary>
+
+### 1. Empty String
+測資中可能會包含「完全沒有字元」的空行。空字串也是一種「平衡」狀態，應該輸出 `Yes`
+
+### 2. parentheses.empty()
+除了上括號，須優先偵測stack是否為空，否則進入後續判斷pointer會跑到奇怪的地方`parentheses.top()沒東西`
+</details>
 
 ## Thinking
 ### variable reference:
@@ -83,29 +96,6 @@ WHILE Case--:
         輸出 "Yes" (完美消除)
     否則：
         輸出 "No"
-```
-</details>
-
-### version 2 - 邏輯:
-```text
-1. Define struct Point { double x, y }
-2. while cin >> 4 Points (a, b, c, d)
-3.      sumX = a.x + b.x + c.x + d.x
-4.      sumY = a.y + b.y + c.y + d.y
-5.      Use if/else to find the identical point and store it in samePoint (C)
-6.      Print (sumX - 3 * samePoint.x) and (sumY - 3 * samePoint.y) formatted to 3 decimal places
-```
-
-<details>
-<summary><head>點擊查看中文版</head></summary>
-
-```text
-1. 定義結構體 Point 包含 x 和 y 座標
-2. 讀取 4 個 Point (a, b, c, d) 直到 EOF
-3.      計算 4 個點的 x 座標總和 sumX
-4.      計算 4 個點的 y 座標總和 sumY
-5.      使用 if/else 找出座標相同的點，並存入 samePoint (即交點 C)
-6.      利用優化公式 (Sum - 3C)，精準輸出小數點後 3 位的座標
 ```
 </details>
 
