@@ -31,3 +31,4 @@ int main()
 			cout << "Case #" << Case++ << ": It is not a B2-Sequence.\n";
 	}
 }
+//set
