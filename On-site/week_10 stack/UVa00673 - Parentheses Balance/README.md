@@ -13,10 +13,12 @@
 <summary><head>點擊查看陷阱與需要注意的點</head></summary>
 
 1. Empty String
-測資中可能會包含「完全沒有字元」的空行。空字串也是一種「平衡」狀態，應該輸出 `Yes`
+測資中可能會包含「完全沒有字元」的空行
+空字串也是一種「平衡」狀態，應該輸出 `Yes`
 
-2. parentheses.empty()
-除了上括號，須優先偵測stack是否為空，否則進入後續判斷pointer會跑到奇怪的地方`parentheses.top()沒東西`
+2. parentheses.top()偵測為空
+parentheses為空也須無條件push
+若測資為`[()`會導致parentheses.top()偵測為空，導致complie error
 </details>
 
 ## Thinking
